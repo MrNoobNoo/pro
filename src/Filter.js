@@ -71,7 +71,9 @@ const Filter = () => {
       //options.push({ value: agentList[i], label: agentList[i]});
       updateCurrent.push(selectedOption[i].value);
     }
-    console.log(updateCurrent);
+    console.log("curr" + updateCurrent);
+    console.log("curre" + value);
+    
 
     var config = {
       method: 'post',
@@ -82,10 +84,7 @@ const Filter = () => {
       data : {
         "info": {
           "filter_agent_list": updateCurrent,
-          "filter_time_range": [
-            0,
-            10
-          ]
+          "filter_time_range": value
         }
       }
     };
@@ -116,12 +115,12 @@ const Filter = () => {
     options.push({ value: agentList[i], label: agentList[i]});
   }
 
-  options.push({ value: 'harry', label: 'potter'});
+  //options.push({ value: 'harry', label: 'potter'});
 
   return (
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'
-    }}>
-        <div style = {{width: 1000, paddingTop: 200 }}> 
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'    }}>
+        <h1>Task 1</h1>
+        <div style = {{width: 1000, paddingTop: 50 }}> 
           <Typography style={{textAlign: 'center'}}>Enter the list of Agents</Typography>
           <Select
           style={{paddingTop: 20}}
