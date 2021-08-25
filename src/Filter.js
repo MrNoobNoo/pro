@@ -100,14 +100,6 @@ const Filter = () => {
   }
 
 
-
-
-  
-
-
-
-
-
   const options = [];
 
 
@@ -118,7 +110,7 @@ const Filter = () => {
   //options.push({ value: 'harry', label: 'potter'});
 
   return (
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'    }}>
+      <div className="Home" style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'    }}>
         <h1>Task 1</h1>
         <div style = {{width: 1000, paddingTop: 50 }}> 
           <Typography style={{textAlign: 'center'}}>Enter the list of Agents</Typography>

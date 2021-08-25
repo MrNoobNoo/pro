@@ -4,11 +4,50 @@ import Labels from './Labels'
 import Filter from './Filter';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
+
+const TaskOne = () => {
+
+  const classes = useStyles();
+	return (
+		<div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', padding: 10}}>
+    <div>
+    <Link to='/tasktwo'>Go to TaskTwo</Link>
+    </div>
+			  {/* <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'> */}
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', paddingTop: 50}}>
+        <Card className={classes.root}>
+    <div>
+      <Filter/>
+    </div>
+    </Card>
+    </div>
+			
+		</div>
+	)
+};
+
+const TaskTwo = () => {
+  const classes = useStyles();
+
+	return (
+		<div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', padding: 10}}>
+    <div>
+				<Link to='/'>Go to Task one</Link>
+    </div>
+        
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', paddingTop: 50}}>
+        <Card className={classes.root}>
+    <div>
+      <Labels/>
+    </div>
+    </Card>
+    </div>
+    
+		</div>
+	)
+};
 
 const useStyles = makeStyles({
   root: {
@@ -30,20 +69,5 @@ const useStyles = makeStyles({
   },
 });
 
-export default () => {
-  const classes = useStyles();
+export {TaskOne, TaskTwo } ;
 
-  // Labels.js for Labels task is still in works.
-  // Filter.js is for the Task 1 
-
-  return (
-  //  <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'>
-    <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', paddingTop: 50}}>
-    <Card className={classes.root}>
-    <div><Filter/></div>
-    </Card>
-    </div>
-  
-    );
-
-};

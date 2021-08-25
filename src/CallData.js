@@ -1,12 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import IdLabels from './IdLabels';
 
 
 const useStyles = makeStyles({
@@ -17,43 +11,54 @@ const useStyles = makeStyles({
   
 const CallData = props => {
 
+  
+
    if(props.data===null){
        return <div style={{paddingTop: 25}}>Use the form above to fetch filtered results.</div>;
    }
-   
-        console.log(props.data);
 
+    const idLabelsHelper = (labels) => {
+        // cost ala 
+        // console.log(labels); 
+        return(
 
-    const listItems = props.data.map((d) => {
-        return (
-       // <li key={d.call_id}>{d.call_id}</li>
-        <TableRow key={d.name}>
-          
-           <TableCell >{d.call_id}</TableCell>
-           {/* <TableCell >{d.call_id}</TableCell>
-           <TableCell >{d.call_time}</TableCell> */}
-         </TableRow>
+          <div style={{}}>
+            <IdLabels data ={labels}/>
+          </div>
         );
+    } 
+
+    const listItems = props.data.map((d, index) => {
+      return (
+        <div style={{padding: 2}}>
+        <div style={{ width: 500, display: "flex",  padding: 5, border: '2px solid black', borderRadius: 7 }}>
+          <div>
+            {/* // check box  */}
+          </div>
+          <div style={{ width: 100, padding: 5, fontSize: 30, }}>
+            {d.call_id}
+          </div>
+          
+          <div style = {{width : 400, padding: 5, paddingLeft: 100}}>
+            {idLabelsHelper(d.label_id)}
+          </div>
+        </div>
+        </div>
+
+      );
     });
 
     const classes = useStyles();
 
     return (
-        <TableContainer component={Paper}>
-          <Table className={classes.table} size="small" aria-label="a dense table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Agent Name</TableCell>
-                <TableCell >Call ID</TableCell>
-                <TableCell>Call Duration</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {listItems}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      );
+      
+        <div style={{padding: 5}}>
+          <div style = {{padding: 10}}>
+            {listItems}
+          </div>
+        </div>
+      
+    );
 };
 
 export default CallData;
